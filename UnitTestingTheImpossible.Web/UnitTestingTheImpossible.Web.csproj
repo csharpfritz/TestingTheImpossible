@@ -104,12 +104,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="2\" />
-    <Folder Include="3\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1\default.aspx" />
+    <Content Include="2\default.aspx" />
+    <Content Include="3\default.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -172,6 +172,22 @@
     <Compile Include="1\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="2\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="2\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="3\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="3\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="3\GridPresenter.cs" />
+    <Compile Include="3\IGridPage.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Default.aspx.cs">

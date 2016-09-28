@@ -10,7 +10,7 @@ namespace UnitTestingTheImpossible.Web
   public partial class original : System.Web.UI.Page
   {
 
-    private static readonly List<Models.Product> _Products = new List<Models.Product>
+    public static readonly List<Models.Product> _Products = new List<Models.Product>
     {
       new Models.Product { ID=1, Name="Mop",              Price=5.21M },
       new Models.Product { ID=2, Name="Laundry Soap",     Price=10.22M },
@@ -36,7 +36,9 @@ namespace UnitTestingTheImpossible.Web
       grid.DataBind();
     }
 
-    protected void grid_RowEditing(object sender, GridViewEditEventArgs e)
+    public GridView TheGrid { get { return grid; } }
+
+    public void grid_RowEditing(object sender, GridViewEditEventArgs e)
     {
       grid.EditIndex = e.NewEditIndex;
       BindData();
@@ -48,7 +50,7 @@ namespace UnitTestingTheImpossible.Web
       BindData();
     }
 
-    protected void grid_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    public void grid_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
       var selectedProduct = _Products.First(p => p.ID == (int)e.Keys[0]);

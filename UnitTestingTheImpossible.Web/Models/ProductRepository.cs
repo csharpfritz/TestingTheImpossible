@@ -17,7 +17,7 @@ namespace UnitTestingTheImpossible.Web.Models
       new Models.Product { ID=4, Name="Cleaning Gloves",  Price=5.27M }
     };
 
-    public IQueryable<Product> Get()
+    public virtual IQueryable<Product> Get()
     {
       return _Products.AsQueryable();
     }
@@ -27,7 +27,7 @@ namespace UnitTestingTheImpossible.Web.Models
       return _Products.First(p => p.ID == id);
     }
 
-    public void Save(Product newProduct)
+    public virtual void Save(Product newProduct)
     {
 
       // Validation

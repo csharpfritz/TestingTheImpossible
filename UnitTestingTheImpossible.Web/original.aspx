@@ -4,7 +4,7 @@
 
       <h1>My Original Grid with Edit Capabilities</h1>
 
-      <asp:GridView runat="server" ID="grid" 
+      <asp:GridView runat="server" ID="grid" ClientIDMode="Static"
         OnRowEditing="grid_RowEditing" OnRowCancelingEdit="grid_RowCancelingEdit" OnRowUpdating="grid_RowUpdating"
         AllowSorting="true" AutoGenerateColumns="true" AutoGenerateEditButton="true">
 

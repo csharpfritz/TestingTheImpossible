@@ -12,10 +12,26 @@ namespace UnitTestingTheImpossible.Web._1
   {
 
     private readonly ProductRepository _Repo;
+    private readonly HttpContextWrapper _ContextOverride = null;
 
-    public _default()
+    public _default() : this(null, null)
     {
-      _Repo = new Models.ProductRepository();
+    }
+
+    public _default(ProductRepository repo, HttpContextWrapper context)
+    {
+      _Repo = repo ?? new Models.ProductRepository();
+      _ContextOverride = context;
+    }
+
+    protected new HttpContextWrapper Context
+    {
+      get
+      {
+
+        return _ContextOverride ?? new HttpContextWrapper(base.Context);
+
+      }
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -45,7 +61,7 @@ namespace UnitTestingTheImpossible.Web._1
       BindData();
     }
 
-    protected void grid_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    public void grid_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
 
       var savedProduct = new Product
